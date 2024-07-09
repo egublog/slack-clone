@@ -6,7 +6,7 @@ const lato = Lato({ subsets: ["latin"], weight: ['100', '300', '400', '700', '90
 
 export const metadata: Metadata = {
   title: "Slack Clone",
-  description: "A Slack Clone built with Next.js and Tailwind CSS",
+  description: "Slack clone codewithlari",
 };
 
 export default function RootLayout({
