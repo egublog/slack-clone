@@ -13,7 +13,7 @@ const AuthPage = () => {
 	const [isAuthenticating, setIsAuthenticating] = useState(false);
 
 	const formSchema = z.object({
-		email: z.string().email({message: "aaa"}).min(2, {message: "Email must be 2 characters"}),
+		email: z.string().email().min(2, {message: "Email must be 2 characters"}),
 	})
 
 	const form = useForm<z.infer<typeof formSchema>>({
