@@ -9,6 +9,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+/**
+ * 認証ページ
+ */
 const AuthPage = () => {
 	const [isAuthenticating, setIsAuthenticating] = useState(false);
 
