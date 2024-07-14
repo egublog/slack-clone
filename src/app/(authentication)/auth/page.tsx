@@ -26,6 +26,9 @@ const AuthPage = () => {
 		}
 	});
 
+	/**
+	 * フォーム送信時の処理
+	 */
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		console.log(values);
 	}
