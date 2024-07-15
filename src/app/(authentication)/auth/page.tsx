@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsSlack } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 import { z } from "zod";
 
 /**
@@ -48,6 +49,7 @@ const AuthPage = () => {
 
 				<div className="flex flex-col space-y-4">
 					<Button disabled={isAuthenticating} variant='outline' className="py-6 border-2 flex space-x-3">
+						<FcGoogle />
 						<Typography className="text-xl" text="Sign in with Google" variants="p" />
 					</Button>
 					<Button disabled={isAuthenticating} variant='outline' className="py-6 border-2 flex space-x-3">
