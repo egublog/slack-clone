@@ -7,6 +7,7 @@ import Typography from "@/components/ui/typography";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { BsSlack } from "react-icons/bs";
 import { z } from "zod";
 
 /**
@@ -37,6 +38,7 @@ const AuthPage = () => {
 		<div className="min-h-screen p-5 grid text-center place-content-center bg-white">
 			<div className="max-w-[450px]">
 				<div className="flex justify-center items-center gap-3 mb-4">
+					<BsSlack size={30} />
 					<Typography text="Slack-clone" variants="h2" />
 				</div>
 
