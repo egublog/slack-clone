@@ -1,23 +1,24 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { BsSlack } from 'react-icons/bs';
+import { FcGoogle } from 'react-icons/fc';
+import { MdOutlineAutoAwesome } from 'react-icons/md';
+import { RxGithubLogo } from 'react-icons/rx';
+import { z } from 'zod';
+
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import Typography from "@/components/ui/typography";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { BsSlack } from "react-icons/bs";
-import { FcGoogle } from "react-icons/fc";
-import { MdOutlineAutoAwesome } from "react-icons/md";
-import { RxGithubLogo } from "react-icons/rx";
-import { z } from "zod";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import Typography from '@/components/ui/typography';
 
 /**
  * 認証ページ
@@ -26,13 +27,13 @@ const AuthPage = () => {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   const formSchema = z.object({
-    email: z.string().email().min(2, { message: "Email must be 2 characters" }),
+    email: z.string().email().min(2, { message: 'Email must be 2 characters' }),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      email: '',
     },
   });
 
