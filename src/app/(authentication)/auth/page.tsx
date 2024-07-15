@@ -50,11 +50,11 @@ const AuthPage = () => {
 
 				<div className="flex flex-col space-y-4">
 					<Button disabled={isAuthenticating} variant='outline' className="py-6 border-2 flex space-x-3">
-						<FcGoogle />
+						<FcGoogle size={30}/>
 						<Typography className="text-xl" text="Sign in with Google" variants="p" />
 					</Button>
 					<Button disabled={isAuthenticating} variant='outline' className="py-6 border-2 flex space-x-3">
-						<RxGithubLogo />
+						<RxGithubLogo size={30}/>
 						<Typography className="text-xl" text="Sign in with Github" variants="p" />
 					</Button>
 				</div>
