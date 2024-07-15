@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsSlack } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
+import { MdOutlineAutoAwesome } from "react-icons/md";
 import { RxGithubLogo } from "react-icons/rx";
 import { z } from "zod";
 
@@ -84,6 +85,7 @@ const AuthPage = () => {
 
 							<div className="px-5 py-4 bg-gray-100 rounded-sm">
 								<div className="text-gray-500 flex items-center space-x-3">
+									<MdOutlineAutoAwesome />
 									<Typography text="We will email you a magic link for a password-free sign-in" variants="p" />
 								</div>
 							</div>
