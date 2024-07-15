@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Typography from "@/components/ui/typography";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -76,6 +76,7 @@ const AuthPage = () => {
 									<FormControl>
 										<Input placeholder="name@work-email.com" {...field} />
 									</FormControl>
+									<FormMessage />
 								</FormItem>
 							)} />
 
