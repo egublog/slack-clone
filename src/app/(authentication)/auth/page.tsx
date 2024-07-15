@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsSlack } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
+import { RxGithubLogo } from "react-icons/rx";
 import { z } from "zod";
 
 /**
@@ -53,6 +54,7 @@ const AuthPage = () => {
 						<Typography className="text-xl" text="Sign in with Google" variants="p" />
 					</Button>
 					<Button disabled={isAuthenticating} variant='outline' className="py-6 border-2 flex space-x-3">
+						<RxGithubLogo />
 						<Typography className="text-xl" text="Sign in with Github" variants="p" />
 					</Button>
 				</div>
