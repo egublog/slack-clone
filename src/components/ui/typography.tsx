@@ -3,12 +3,12 @@ import { FC, HTMLAttributes } from "react";
 
 
 type TypographyProps = {
-	variants?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
+	variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 	text: string;
 	className?: string;
 } & HTMLAttributes<HTMLElement>;
 
-const Typography: FC<TypographyProps> = ({variants = 'h1', text, className, ...props}) => {
+const Typography: FC<TypographyProps> = ({variant = 'h1', text, className, ...props}) => {
 	const classNames = {
 		h1: 'scroll-m-20 text-4xl font-extra-bold tracking-tight lg:text-5xl',
 		h2: 'scroll-m-16 text-3xl font-bold tracking-tight lg:text-4xl',
@@ -19,8 +19,8 @@ const Typography: FC<TypographyProps> = ({variants = 'h1', text, className, ...p
 		p: 'scroll-m-4 text-sm font-normal tracking-tight lg:text-base',
 	};
 
-	const Tag = variants;
-	const defaultClassName = classNames[variants];
+	const Tag = variant;
+	const defaultClassName = classNames[variant];
 	const combinedClassName = cn(defaultClassName, className);
 
 	return <Tag className={combinedClassName} {...props}>{text}</Tag>;
