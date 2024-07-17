@@ -19,6 +19,8 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
+import { Provider } from '@supabase/supabase-js';
+import { supabaseBrowserClient } from '@/supabase/supabaseClient';
 
 /**
  * 認証ページ
@@ -42,6 +44,17 @@ const AuthPage = () => {
    */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
+  };
+
+  const socialAuth = async (provider: Provider) => {
+    setIsAuthenticating(true);
+    await supabaseBrowserClient.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+    setIsAuthenticating(false);
   };
 
   return (
@@ -69,6 +82,7 @@ const AuthPage = () => {
             disabled={isAuthenticating}
             variant="outline"
             className="py-6 border-2 flex space-x-3"
+            onClick={() => socialAuth('google')}
           >
             <FcGoogle size={30} />
             <Typography
@@ -81,6 +95,7 @@ const AuthPage = () => {
             disabled={isAuthenticating}
             variant="outline"
             className="py-6 border-2 flex space-x-3"
+            onClick={() => socialAuth('github')}
           >
             <RxGithubLogo size={30} />
             <Typography
