@@ -21,6 +21,7 @@ import { Input } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
 import { Provider } from '@supabase/supabase-js';
 import { supabaseBrowserClient } from '@/supabase/supabaseClient';
+import { registerWithEmail } from '@/actions/register-with-email';
 
 /**
  * 認証ページ
@@ -43,7 +44,14 @@ const AuthPage = () => {
    * フォーム送信時の処理
    */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    setIsAuthenticating(true);
+    const response = await registerWithEmail(values);
+    const { data, error } = JSON.parse(response);
+    setIsAuthenticating(false);
+    if (error) {
+      console.error('Sign in error', error);
+      return;
+    }
   };
 
   const socialAuth = async (provider: Provider) => {
