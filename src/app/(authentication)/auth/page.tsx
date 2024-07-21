@@ -42,6 +42,7 @@ const AuthPage = () => {
 
   /**
    * フォーム送信時の処理
+   * TODO: 認証できてないので後で見る(GitHubの認証はできる)
    */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsAuthenticating(true);
