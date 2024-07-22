@@ -78,5 +78,27 @@ const Step1 = () => {
 };
 
 const Step2 = () => {
-  return <></>;
+  const { setCurrentStep } = useCreateWorkspaceValues();
+
+  return (
+    <>
+      <Button
+        size="sm"
+        className="text-white"
+        variant="link"
+        onClick={() => setCurrentStep(1)}
+      >
+        <Typography text="Back" variant="p" />
+      </Button>
+
+      <form>
+        <Typography text="Add workspace avatar" className="my-4" />
+        <Typography
+          text=" This image can be changed later in your workspace settings."
+          className="text-neutral-300"
+          variant="p"
+        />
+      </form>
+    </>
+  );
 };
