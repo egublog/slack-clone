@@ -1,5 +1,7 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
 import { useCreateWorkspaceValues } from '@/hooks/create-workspace-values';
 
@@ -45,6 +47,32 @@ const Step1 = () => {
         text="What is the name of your company or team"
         className="my-4"
       />
+
+      <Typography
+        text="This will be the name of your Slack-clone workspace - choose something that your team will recognize."
+        className="text-neutral-300"
+        variant="p"
+      />
+
+      <form className="mt-6">
+        <fieldset>
+          <Input
+            className="bg-neutral-700 text-white border-neutral-600"
+            type="text"
+            value={name}
+            placeholder=" Enter your company name"
+            onChange={(e) => updateValues({ name: e.target.value })}
+          />
+          <Button
+            type="button"
+            className="mt-10"
+            onClick={() => setCurrentStep(2)}
+            disabled={!name}
+          >
+            <Typography text="Next" variant="p" />
+          </Button>
+        </fieldset>
+      </form>
     </>
   );
 };
