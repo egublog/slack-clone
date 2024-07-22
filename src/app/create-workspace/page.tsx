@@ -78,7 +78,10 @@ const Step1 = () => {
 };
 
 const Step2 = () => {
-  const { setCurrentStep } = useCreateWorkspaceValues();
+  const { setCurrentStep, updateImageUrl, imageUrl } =
+    useCreateWorkspaceValues();
+
+  const handleSubmit = () => {};
 
   return (
     <>
@@ -98,6 +101,35 @@ const Step2 = () => {
           className="text-neutral-300"
           variant="p"
         />
+
+        <fieldset className="mt-6 flex flex-col items-center space-y-9">
+          {/* IMAGE IMAGE COMPONENT */}
+          <div className="space-x-5">
+            <Button
+              onClick={() => {
+                updateImageUrl('');
+                handleSubmit();
+              }}
+            >
+              <Typography text="Skip for now" variant="p" />
+            </Button>
+
+            {imageUrl ? (
+              <Button
+                type="button"
+                onClick={handleSubmit}
+                size="sm"
+                variant="destructive"
+              >
+                <Typography text="Submit" variant="p" />
+              </Button>
+            ) : (
+              <Button size="sm" className="text-white bg-gray-500">
+                <Typography text="Select and Image" variant="p" />
+              </Button>
+            )}
+          </div>
+        </fieldset>
       </form>
     </>
   );
