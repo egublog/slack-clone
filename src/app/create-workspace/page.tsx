@@ -24,11 +24,7 @@ const CreateWorkspace = () => {
   return (
     <div className="w-screen h-screen grid place-content-center bg-neutral-800 text-white">
       <div className="p-3 max-w-[550px]">
-        <Typography
-          text={`step ${currentStep} of 2`}
-          variant="p"
-          className="text-neutral-400"
-        />
+        <Typography text={`step ${currentStep} of 2`} variant="p" className="text-neutral-400" />
 
         {stepInView}
       </div>
@@ -43,10 +39,7 @@ const Step1 = () => {
   console.log('Step1');
   return (
     <>
-      <Typography
-        text="What is the name of your company or team"
-        className="my-4"
-      />
+      <Typography text="What is the name of your company or team" className="my-4" />
 
       <Typography
         text="This will be the name of your Slack-clone workspace - choose something that your team will recognize."
@@ -78,19 +71,13 @@ const Step1 = () => {
 };
 
 const Step2 = () => {
-  const { setCurrentStep, updateImageUrl, imageUrl } =
-    useCreateWorkspaceValues();
+  const { setCurrentStep, updateImageUrl, imageUrl } = useCreateWorkspaceValues();
 
   const handleSubmit = () => {};
 
   return (
     <>
-      <Button
-        size="sm"
-        className="text-white"
-        variant="link"
-        onClick={() => setCurrentStep(1)}
-      >
+      <Button size="sm" className="text-white" variant="link" onClick={() => setCurrentStep(1)}>
         <Typography text="Back" variant="p" />
       </Button>
 
@@ -115,12 +102,7 @@ const Step2 = () => {
             </Button>
 
             {imageUrl ? (
-              <Button
-                type="button"
-                onClick={handleSubmit}
-                size="sm"
-                variant="destructive"
-              >
+              <Button type="button" onClick={handleSubmit} size="sm" variant="destructive">
                 <Typography text="Submit" variant="p" />
               </Button>
             ) : (

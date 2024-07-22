@@ -13,10 +13,7 @@ export const getUserData = async (): Promise<User | null> => {
     return null;
   }
 
-  const { data, error } = await supabase
-    .from('users')
-    .select('*')
-    .eq('id', user.id);
+  const { data, error } = await supabase.from('users').select('*').eq('id', user.id);
 
   if (error) {
     console.log(error);
