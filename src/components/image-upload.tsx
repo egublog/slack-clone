@@ -3,6 +3,10 @@ import { UploadDropzone } from '@/lib/uploadthing';
 import Image from 'next/image';
 import { ImCancelCircle } from 'react-icons/im';
 
+/**
+ * 画像アップロード
+ * TODO: 画像アップロードの処理をすると失敗するので後で見る
+ */
 const ImageUpload = () => {
   const { imageUrl, updateImageUrl } = useCreateWorkspaceValues();
 
