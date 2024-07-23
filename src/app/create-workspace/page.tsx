@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
 import { useCreateWorkspaceValues } from '@/hooks/create-workspace-values';
+import slugify from 'slugify';
+import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
 
 const CreateWorkspace = () => {
