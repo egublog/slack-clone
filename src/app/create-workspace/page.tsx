@@ -8,6 +8,7 @@ import { useCreateWorkspaceValues } from '@/hooks/create-workspace-values';
 import slugify from 'slugify';
 import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
+import { createWorkspace } from '@/actions/create-workspace';
 
 const CreateWorkspace = () => {
   const { currentStep } = useCreateWorkspaceValues();
@@ -75,12 +76,14 @@ const Step1 = () => {
 };
 
 const Step2 = () => {
-  const { setCurrentStep, updateImageUrl, imageUrl } = useCreateWorkspaceValues();
+  const { setCurrentStep, updateImageUrl, imageUrl, name } = useCreateWorkspaceValues();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    // WORKSPACE CREATION LOGIC
+    const slug = slugify(name);
+    const invite_code = uuid();
+    const error = await createWorkspace({ imageUrl, name, slug, invite_code });
   };
 
   return (
