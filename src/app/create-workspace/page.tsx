@@ -84,6 +84,7 @@ const Step2 = () => {
     const slug = slugify(name);
     const invite_code = uuid();
     const error = await createWorkspace({ imageUrl, name, slug, invite_code });
+    setIsSubmitting(false);
   };
 
   return (
