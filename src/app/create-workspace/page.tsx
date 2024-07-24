@@ -10,6 +10,9 @@ import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
 import { createWorkspace } from '@/actions/create-workspace';
 
+/**
+ * ワークスペース作成ページ
+ */
 const CreateWorkspace = () => {
   const { currentStep } = useCreateWorkspaceValues();
 
