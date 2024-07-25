@@ -1,4 +1,4 @@
-'user server';
+'use server';
 
 import { supabaseServerClient } from '@/supabase/supabaseServer';
 

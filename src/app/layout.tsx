@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
-import { Lato } from "next/font/google";
-import "@/styles/globals.css";
+import type { Metadata } from 'next';
+import { Lato } from 'next/font/google';
+import '@/styles/globals.css';
+import { Toaster } from 'sonner';
 
 const lato = Lato({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '700', '900'],
 });
 
 export const metadata: Metadata = {
-  title: "Slack Clone",
-  description: "Slack clone codewithlari",
+  title: 'Slack Clone',
+  description: 'Slack clone codewithlari',
 };
 
 export default function RootLayout({
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lato.className}>{children}</body>
+      <body className={lato.className}>
+        <main>{children}</main>
+        <Toaster />
+      </body>
     </html>
   );
 }

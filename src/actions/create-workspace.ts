@@ -3,6 +3,7 @@
 import { supabaseServerClient } from '@/supabase/supabaseServer';
 import { getUserData } from './get-user-data';
 import { updateUserWorkspace } from './update-user-workspace';
+import { addMemberToWorkspace } from './add-member-to-workspace';
 
 export const createWorkspace = async ({
   imageUrl,
@@ -47,4 +48,12 @@ export const createWorkspace = async ({
   }
 
   // Add user to workspace members
+  const [addMemberToWorkspaceData, addMemberToWorkspaceError] = await addMemberToWorkspace(
+    userData.id,
+    workspaceRecord[0].id,
+  );
+
+  if (addMemberToWorkspaceError) {
+    return { error: addMemberToWorkspaceError };
+  }
 };

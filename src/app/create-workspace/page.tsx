@@ -9,6 +9,8 @@ import slugify from 'slugify';
 import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
 import { createWorkspace } from '@/actions/create-workspace';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 /**
  * ワークスペース作成ページ
@@ -81,13 +83,20 @@ const Step1 = () => {
 const Step2 = () => {
   const { setCurrentStep, updateImageUrl, imageUrl, name } = useCreateWorkspaceValues();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     const slug = slugify(name);
     const invite_code = uuid();
-    createWorkspace({ imageUrl, name, slug, invite_code });
+    const error = await createWorkspace({ imageUrl, name, slug, invite_code });
     setIsSubmitting(false);
+    if (error?.error) {
+      console.log(error);
+      return toast.error("Couldn't create workspace. Please try again.");
+    }
+    toast.success('Workspace created successfully');
+    router.push('/');
   };
 
   return (
