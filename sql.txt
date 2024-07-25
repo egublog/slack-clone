@@ -40,3 +40,12 @@ create
 or replace trigger on_auth_user_created
 after insert on auth.users for each row
 execute procedure public.handle_new_user ();
+
+ADD USER TO DATABASE
+create
+or replace function add_workspace_to_user (user_id uuid, new_workspace text) returns void as $$
+BEGIN
+  update users set workspaces = workspaces || array[new_workspace]
+  where id = user_id;
+END;
+$$ language plpgsql;
