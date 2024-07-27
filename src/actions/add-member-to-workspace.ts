@@ -1,5 +1,8 @@
 import { supabaseServerClient } from '@/supabase/supabaseServer';
 
+/**
+ *  memberをworkspaceに追加
+ */
 export const addMemberToWorkspace = async (userId: string, workspaceId: number) => {
   const supabase = await supabaseServerClient();
 

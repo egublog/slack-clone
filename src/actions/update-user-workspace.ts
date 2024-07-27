@@ -3,10 +3,7 @@
 import { supabaseServerClient } from '@/supabase/supabaseServer';
 
 /**
- *  Update the user workspace
- * @param userId
- * @param workspaceId
- * @returns [updateWorkspaceData, updateWorkspaceError]
+ *  ユーザーのワークスペースを更新
  */
 export const updateUserWorkspace = async (userId: string, workspaceId: string) => {
   const supabase = await supabaseServerClient();
