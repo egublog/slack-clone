@@ -44,6 +44,9 @@ const CreateWorkspace = () => {
 
 export default CreateWorkspace;
 
+/***
+ * ワークスペース作成ステップ1
+ */
 const Step1 = () => {
   const { name, updateValues, setCurrentStep } = useCreateWorkspaceValues();
   console.log('Step1');
