@@ -8,6 +8,9 @@ const currentUser = async () => {
   return { userId: user?.id };
 };
 
+/**
+ * 画像のアップロード
+ */
 export const ourFileRouter = {
   workspaceImage: f({ image: { maxFileSize: '4MB', maxFileCount: 1 } })
     .middleware(() => currentUser())
