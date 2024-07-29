@@ -83,6 +83,9 @@ const Step1 = () => {
   );
 };
 
+/**
+ * ワークスペース作成ステップ2
+ */
 const Step2 = () => {
   const { setCurrentStep, updateImageUrl, imageUrl, name } = useCreateWorkspaceValues();
   const [isSubmitting, setIsSubmitting] = useState(false);
