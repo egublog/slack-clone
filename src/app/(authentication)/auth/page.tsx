@@ -10,13 +10,7 @@ import { RxGithubLogo } from 'react-icons/rx';
 import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import Typography from '@/components/ui/typography';
 import { Provider } from '@supabase/supabase-js';
@@ -60,7 +54,6 @@ const AuthPage = () => {
 
   /**
    * フォーム送信時の処理
-   * TODO: 認証できてないので後で見る(GitHubの認証はできる)
    */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsAuthenticating(true);
@@ -73,6 +66,10 @@ const AuthPage = () => {
     }
   };
 
+  /**
+   * ソーシャル認証
+   * TODO: 認証できてないので後で見る(GitHubの認証はできる)
+   */
   const socialAuth = async (provider: Provider) => {
     setIsAuthenticating(true);
     await supabaseBrowserClient.auth.signInWithOAuth({
@@ -94,11 +91,7 @@ const AuthPage = () => {
           <Typography text="Slack-clone" variant="h2" />
         </div>
 
-        <Typography
-          text="Sign in to your Slack-clone"
-          variant="h2"
-          className="mb-3"
-        />
+        <Typography text="Sign in to your Slack-clone" variant="h2" className="mb-3" />
 
         <Typography
           text="We suggest using the email address that you use at work."
@@ -114,11 +107,7 @@ const AuthPage = () => {
             onClick={() => socialAuth('google')}
           >
             <FcGoogle size={30} />
-            <Typography
-              className="text-xl"
-              text="Sign in with Google"
-              variant="p"
-            />
+            <Typography className="text-xl" text="Sign in with Google" variant="p" />
           </Button>
           <Button
             disabled={isAuthenticating}
@@ -127,11 +116,7 @@ const AuthPage = () => {
             onClick={() => socialAuth('github')}
           >
             <RxGithubLogo size={30} />
-            <Typography
-              className="text-xl"
-              text="Sign in with Github"
-              variant="p"
-            />
+            <Typography className="text-xl" text="Sign in with Github" variant="p" />
           </Button>
         </div>
 
