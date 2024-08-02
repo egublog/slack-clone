@@ -1,7 +1,12 @@
 import { FC, ReactNode } from 'react';
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
-  return <div>MAIN LAYOUT {children}</div>;
+  return (
+    <div>
+      <h1>Main Layout</h1>
+      <main>{children}</main>
+    </div>
+  );
 };
 
 export default MainLayout;
