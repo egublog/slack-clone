@@ -1,5 +1,8 @@
 import { FC, ReactNode } from 'react';
 
+/**
+ * メインレイアウト
+ */
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div>
