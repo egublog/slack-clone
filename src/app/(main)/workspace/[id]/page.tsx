@@ -12,9 +12,10 @@ const Workspace = async ({ params: { id } }: { params: { id: string } }) => {
   const [currentWorkspaceData, currentWorkspaceError] = await getCurrentWorkspaceData(id);
 
   return (
-    <div>
-      <h1>Workspace</h1>
-    </div>
+    <>
+      <div className="hidden md:block"></div>
+      <div className="md:hidden block min-h-screen">Mobile</div>
+    </>
   );
 };
 
