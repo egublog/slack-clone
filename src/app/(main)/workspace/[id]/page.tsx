@@ -4,6 +4,9 @@ import Sidebar from '@/components/sidebar';
 import { Workspace as UserWorkspace } from '@/types/app';
 import { redirect } from 'next/navigation';
 
+/**
+ * ワークスペースページ
+ */
 const Workspace = async ({ params: { id } }: { params: { id: string } }) => {
   const userData = await getUserData();
 
