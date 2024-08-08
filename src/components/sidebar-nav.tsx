@@ -2,6 +2,7 @@ import { Workspace } from '@/types/app';
 import { FC } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent } from '@/components/ui/card';
 import Typography from './ui/typography';
 
 type SidebarNavProps = {
@@ -29,7 +30,34 @@ const SidebarNav: FC<SidebarNavProps> = ({ currentWorkspaceData, userWorkspacesD
                     </AvatarFallback>
                   </Avatar>
                 </TooltipTrigger>
-                <TooltipContent></TooltipContent>
+                <TooltipContent className="p-0" side="bottom">
+                  <Card className="w-[350px] border-0">
+                    <CardContent className="flex p-0 flex-col">
+                      {userWorkspacesData.map((workspace) => (
+                        <div key={workspace.id} className="hover:opacity-70 px-2 py-1 flex gap-2">
+                          <Avatar>
+                            <AvatarImage
+                              src={workspace.image_url || ''}
+                              alt={workspace.name}
+                              className="object-cover w-full h-full"
+                            />
+                            <AvatarFallback>
+                              <Typography variant="p" text={workspace.name.slice(0, 2)} />
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <Typography variant="p" text={workspace.name} className="text-sm" />
+                            <Typography
+                              variant="p"
+                              text={workspace.invite_code || ''}
+                              className="text-xs lg:text-xs"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </div>
