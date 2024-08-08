@@ -10,6 +10,9 @@ type SidebarNavProps = {
   currentWorkspaceData: Workspace;
 };
 
+/**
+ * サイドバーナビゲーション
+ */
 const SidebarNav: FC<SidebarNavProps> = ({ currentWorkspaceData, userWorkspacesData }) => {
   return (
     <nav>
