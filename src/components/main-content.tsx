@@ -17,7 +17,7 @@ const MainContent: FC<{ children: ReactNode }> = ({ children }) => {
   }
 
   return (
-    <div className={cn('md:px-2 md:pb-2 md:pt-14 md:h-screen')}>
+    <div className={cn('md:px-2 md:pb-2 md:pt-14 md:h-screen', backgroundColor)}>
       <main
         className={cn(
           'md:ml-[280px] lg:ml-[420px] md:h-full overflow-scroll [&::-webkit-scrollbar-thumb]:rounded-[6px]  [&::-webkit-scrollbar-thumb]:bg-foreground/60 [&::-webkit-scrollbar-thumb]:bg-none [&::-webkit-scrollbar-thumb]:w-2',
