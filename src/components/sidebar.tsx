@@ -8,6 +8,9 @@ type SidebarProps = {
   userData: User;
 };
 
+/**
+ * サイドバー
+ */
 const Sidebar: FC<SidebarProps> = ({ userWorkspacesData, currentWorkspaceData, userData }) => {
   return (
     <aside
