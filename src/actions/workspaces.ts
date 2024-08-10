@@ -2,6 +2,9 @@
 
 import { supabaseServerClient } from '@/supabase/supabaseServer';
 
+/**
+ * ユーザーのワークスペースを更新
+ */
 export const getUserWorkspaceData = async (workspaceIds: Array<string>) => {
   const supabase = await supabaseServerClient();
 
@@ -10,6 +13,9 @@ export const getUserWorkspaceData = async (workspaceIds: Array<string>) => {
   return [data, error];
 };
 
+/**
+ * ワークスペースのデータを取得
+ */
 export const getCurrentWorkspaceData = async (workspaceId: string) => {
   const supabase = await supabaseServerClient();
 
