@@ -2,6 +2,9 @@
 
 import { supabaseServerClient } from '@/supabase/supabaseServer';
 
+/**
+ * メールアドレスで登録
+ */
 export const registerWithEmail = async ({ email }: { email: string }) => {
   const supabase = await supabaseServerClient();
 
