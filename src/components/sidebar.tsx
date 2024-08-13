@@ -1,5 +1,4 @@
 import { User, Workspace } from '@/types/app';
-import { FC } from 'react';
 import SidebarNav from './sidebar-nav';
 
 type SidebarProps = {
@@ -11,7 +10,7 @@ type SidebarProps = {
 /**
  * サイドバー
  */
-const Sidebar: FC<SidebarProps> = ({ userWorkspacesData, currentWorkspaceData, userData }) => {
+const Sidebar = ({ userWorkspacesData, currentWorkspaceData, userData }: SidebarProps) => {
   return (
     <aside
       className={`
