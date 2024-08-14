@@ -5,6 +5,9 @@ import { getUserData } from './get-user-data';
 import { updateUserWorkspace } from './update-user-workspace';
 import { addMemberToWorkspace } from './add-member-to-workspace';
 
+/**
+ * ワークスペースを作成
+ */
 export const createWorkspace = async ({
   imageUrl,
   name,
