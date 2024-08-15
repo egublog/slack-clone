@@ -1,9 +1,12 @@
+import { FaPlus } from 'react-icons/fa';
 import { Workspace } from '@/types/app';
 import { FC } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
-import Typography from './ui/typography';
+import Typography from '@/components/ui/typography';
+import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 
 type SidebarNavProps = {
   userWorkspacesData: Workspace[];
@@ -58,6 +61,13 @@ const SidebarNav: FC<SidebarNavProps> = ({ currentWorkspaceData, userWorkspacesD
                           </div>
                         </div>
                       ))}
+                      <Separator />
+                      <div className="flex items-center gap-2 p-2">
+                        <Button variant="secondary">
+                          <FaPlus />
+                        </Button>
+                        <Typography variant="p" text="Add Workspace" />
+                      </div>
                     </CardContent>
                   </Card>
                 </TooltipContent>
