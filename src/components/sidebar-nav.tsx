@@ -1,5 +1,6 @@
 import { FaPlus } from 'react-icons/fa';
 import { RiHome2Fill } from 'react-icons/ri';
+import { PiChatsTeardrop } from 'react-icons/pi';
 import { Workspace } from '@/types/app';
 import { FC } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -83,6 +84,19 @@ const SidebarNav: FC<SidebarNavProps> = ({ currentWorkspaceData, userWorkspacesD
               />
             </div>
             <Typography variant="p" text="Home" className="text-sm lg:text-sm md:text-sm" />
+          </div>
+        </li>
+        <li>
+          <div className="flex flex-col cursor-pointer items-center group text-white">
+            <div className="flex flex-col items-center cursor-pointer group text-white">
+              <div className="p-2 rounded-lg bg-[rgba(255,255,255,0.3)]">
+                <PiChatsTeardrop
+                  size={20}
+                  className="group-hover:scale-125 transition-all duration-300"
+                />
+              </div>
+              <Typography variant="p" text="Dms" className="text-sm lg:text-sm md:text-sm" />
+            </div>
           </div>
         </li>
       </ul>
