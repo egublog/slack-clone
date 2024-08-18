@@ -1,9 +1,18 @@
-import { User, Workspace } from '@/types/app';
-import SidebarNav from './sidebar-nav';
+'use client';
+
 import { FiPlus } from 'react-icons/fi';
+import { GoDot, GoDotFill } from 'react-icons/go';
+import { GiNightSleep } from 'react-icons/gi';
+
+import { User, Workspace } from '@/types/app';
+import SidebarNav from '@/components/sidebar-nav';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Popover } from '@/components/ui/popover';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useColorPreferences } from '@/providers/color-preferences';
+import Typography from './ui/typography';
 
 type SidebarProps = {
   userWorkspacesData: Workspace[];
@@ -15,6 +24,15 @@ type SidebarProps = {
  * サイドバー
  */
 const Sidebar = ({ userWorkspacesData, currentWorkspaceData, userData }: SidebarProps) => {
+  const { color } = useColorPreferences();
+
+  let backgroundColor = 'bg-primary-dark';
+  if (color === 'green') {
+    backgroundColor = 'bg-green-700';
+  } else if (color === 'blue') {
+    backgroundColor = 'bg-blue-700';
+  }
+
   return (
     <aside
       className={`
@@ -57,17 +75,58 @@ const Sidebar = ({ userWorkspacesData, currentWorkspaceData, userData }: Sidebar
             <TooltipTrigger asChild>
               <div>
                 <Popover>
-                  <div className="h-10 w-10 relative cursor-pointer">
-                    <div className="h-full w-full rounded-lg overflow-hidden">
-                      <Image
-                        className="object-cover w-full h-full"
-                        src={userData.avatar_url}
-                        alt={userData.name || 'user'}
-                        width={300}
-                        height={300}
-                      />
+                  <PopoverTrigger>
+                    <div className="h-10 w-10 relative cursor-pointer">
+                      <div className="h-full w-full rounded-lg overflow-hidden">
+                        <Image
+                          className="object-cover w-full h-full"
+                          src={userData.avatar_url}
+                          alt={userData.name || 'user'}
+                          width={300}
+                          height={300}
+                        />
+                        <div
+                          className={cn(
+                            'absolute z-10 rounded-full -right-[20%] -bottom-1',
+                            backgroundColor,
+                          )}
+                        >
+                          {userData.is_away ? (
+                            <GoDot className="text-white text-xl" />
+                          ) : (
+                            <GoDotFill className="text-green-600" size={17} />
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </PopoverTrigger>
+                  <PopoverContent side="right">
+                    <div>
+                      <div className="flex space-x-3">
+                        <Avatar>
+                          <AvatarImage src={userData.avatar_url} />
+                          <AvatarFallback>
+                            {userData.name && userData.name.slice(0, 2)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex flex-col">
+                          <Typography
+                            text={userData.name || userData.email}
+                            variant="p"
+                            className="font-bold"
+                          />
+                          <div className="flex items-center space-x-1">
+                            {userData.is_away ? (
+                              <GiNightSleep size={12} />
+                            ) : (
+                              <GoDotFill className="text-green-600" size={17} />
+                            )}
+                            <span className="text-xs">{userData.is_away ? 'Away' : 'Active'}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </PopoverContent>
                 </Popover>
               </div>
             </TooltipTrigger>
