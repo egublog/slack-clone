@@ -15,7 +15,8 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useColorPreferences } from '@/providers/color-preferences';
-import Typography from './ui/typography';
+import Typography from '@/components/ui/typography';
+import PreferencesDialog from './preferences-dialog';
 
 type SidebarProps = {
   userWorkspacesData: Workspace[];
@@ -156,7 +157,7 @@ const Sidebar = ({ userWorkspacesData, currentWorkspaceData, userData }: Sidebar
                           className="hover:text-white hover:bg-blue-700 px-2 py-1 rounded cursor-pointer"
                           variant="p"
                         />
-                        {/* Preferences Dialog */}
+                        <PreferencesDialog />
                         <hr className="bg-gray-400" />
                         <div className="flex gap-2 items-center hover:text-white hover:bg-blue-700 px-2 py-1 rounded cursor-pointer">
                           <IoDiamondOutline className="text-orange-400" />
