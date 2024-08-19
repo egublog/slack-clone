@@ -2,6 +2,7 @@ import { getUserData } from '@/actions/get-user-data';
 import { getCurrentWorkspaceData, getUserWorkspaceData } from '@/actions/workspaces';
 import InfoSection from '@/components/info-section';
 import Sidebar from '@/components/sidebar';
+import Typography from '@/components/ui/typography';
 import { Workspace as UserWorkspace } from '@/types/app';
 import { redirect } from 'next/navigation';
 
@@ -26,6 +27,14 @@ const Workspace = async ({ params: { id } }: { params: { id: string } }) => {
           userWorkspacesData={userWorkspaceData as UserWorkspace[]}
         />
         <InfoSection />
+        Workspace
+        <Typography text="HELLO WORLD" variant="h1" />
+        <Typography text="HELLO WORLD" variant="h2" />
+        <Typography text="HELLO WORLD" variant="h3" />
+        <Typography text="HELLO WORLD" variant="h4" />
+        <Typography text="HELLO WORLD" variant="h5" />
+        <Typography text="HELLO WORLD" variant="h6" />
+        <Typography text="HELLO WORLD" variant="p" />
       </div>
       <div className="md:hidden block min-h-screen">Mobile</div>
     </>
