@@ -3,10 +3,11 @@ import { useTheme } from 'next-themes';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Typography from './ui/typography';
 import { HiOutlinePaintBrush } from 'react-icons/hi2';
-import { MdLightMode } from 'react-icons/md';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
+import { BsLaptop } from 'react-icons/bs';
 
 const PreferencesDialog = () => {
   const { setTheme, theme } = useTheme();
@@ -49,6 +50,22 @@ const PreferencesDialog = () => {
               >
                 <MdLightMode className="mr-2" size={20} />
                 <Typography text="Light" variant="p" />
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setTheme('dark')}
+                className={`w-full ${cn(theme === 'dark' && 'border-blue-600')}`}
+              >
+                <BsLaptop className="mr-2" size={20} />
+                <Typography text="Dark" variant="p" />
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setTheme('system')}
+                className={`w-full ${cn(theme === 'system' && 'border-blue-600')}`}
+              >
+                <MdLightMode className="mr-2" size={20} />
+                <Typography text="System" variant="p" />
               </Button>
             </div>
           </TabsContent>
