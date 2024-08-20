@@ -68,6 +68,32 @@ const PreferencesDialog = () => {
                 <Typography text="System" variant="p" />
               </Button>
             </div>
+            <hr className="bg-gray-200 my-5" />
+            <Typography text="Single Color" variant="p" className="py-2 font-bold" />
+
+            <div className="flex flex-wrap gap-5">
+              <Button
+                variant="outline"
+                onClick={() => selectColor('green')}
+                className="w-full hover:border-green-800 border-2"
+              >
+                Green
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => selectColor('blue')}
+                className="w-full hover:border-blue-800 border-2"
+              >
+                Blue
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => selectColor('')}
+                className="w-full hover:border-red-800 border-2"
+              >
+                Reset
+              </Button>
+            </div>
           </TabsContent>
         </Tabs>
       </DialogContent>

@@ -2,7 +2,7 @@
 
 import { createContext, FC, ReactNode, useContext, useEffect, useState } from 'react';
 
-type Colors = 'blue' | 'green';
+type Colors = 'blue' | 'green' | '';
 
 type ColorPreferencesContext = {
   color: Colors;
