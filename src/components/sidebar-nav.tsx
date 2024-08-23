@@ -1,4 +1,3 @@
-import { FaPlus } from 'react-icons/fa';
 import { RiHome2Fill } from 'react-icons/ri';
 import { PiChatsTeardrop } from 'react-icons/pi';
 import { Workspace } from '@/types/app';
@@ -7,8 +6,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import Typography from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import CreateWorkspace from './create-workspace';
 
 type SidebarNavProps = {
   userWorkspacesData: Workspace[];
@@ -63,12 +62,7 @@ const SidebarNav: FC<SidebarNavProps> = ({ currentWorkspaceData, userWorkspacesD
                       </div>
                     ))}
                     <Separator />
-                    <div className="flex items-center gap-2 p-2">
-                      <Button variant="secondary">
-                        <FaPlus />
-                      </Button>
-                      <Typography variant="p" text="Add Workspace" />
-                    </div>
+                    <CreateWorkspace />
                   </CardContent>
                 </Card>
               </PopoverContent>
