@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Typography from '@/components/ui/typography';
 import { Separator } from '@/components/ui/separator';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import CreateWorkspace from './create-workspace';
+import CreateWorkspace from '@/components/create-workspace';
 
 type SidebarNavProps = {
   userWorkspacesData: Workspace[];
