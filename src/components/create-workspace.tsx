@@ -23,6 +23,9 @@ import { z } from 'zod';
 import { Input } from '@/components/ui/input';
 import ImageUpload from '@/components/image-upload';
 
+/**
+ * ワークスペース作成コンポーネント
+ */
 const CreateWorkspace = () => {
   const formSchema = z.object({
     name: z.string().min(2, { message: 'Workspace name should be at least 2 characters long' }),
