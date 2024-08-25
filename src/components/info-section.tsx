@@ -3,6 +3,9 @@
 import { cn } from '@/lib/utils';
 import { useColorPreferences } from '@/providers/color-preferences';
 
+/**
+ * インフォセクション
+ */
 const InfoSection = () => {
   const { color } = useColorPreferences();
 
