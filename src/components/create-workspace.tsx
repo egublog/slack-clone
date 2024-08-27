@@ -22,11 +22,20 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Input } from '@/components/ui/input';
 import ImageUpload from '@/components/image-upload';
+import slugify from 'slugify';
+import { v4 as uuidv4 } from 'uuid';
+import { createWorkspace } from '@/actions/create-workspace';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
+import { useCreateWorkspaceValues } from '@/hooks/create-workspace-values';
 
 /**
  * ワークスペース作成コンポーネント
  */
 const CreateWorkspace = () => {
+  const router = useRouter();
+  const { imageUrl } = useCreateWorkspaceValues();
+
   const formSchema = z.object({
     name: z.string().min(2, { message: 'Workspace name should be at least 2 characters long' }),
   });
@@ -38,7 +47,18 @@ const CreateWorkspace = () => {
   });
 
   const onSubmit = async ({ name }: z.infer<typeof formSchema>) => {
-    console.log(name);
+    const slug = slugify(name, { lower: true });
+    const invite_code = uuidv4();
+
+    const result = await createWorkspace({ name, slug, invite_code, imageUrl });
+
+    if (result?.error) {
+      console.error(result.error);
+    }
+
+    form.reset();
+    router.refresh();
+    toast.success('Workspace created successfully');
   };
 
   return (
