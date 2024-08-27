@@ -5,6 +5,10 @@ import { useColorPreferences } from '@/providers/color-preferences';
 import { useTheme } from 'next-themes';
 import { FC, ReactNode } from 'react';
 
+/**
+ * メインコンテンツを表示するコンポーネント
+ * @param children - 子要素
+ */
 const MainContent: FC<{ children: ReactNode }> = ({ children }) => {
   const { theme } = useTheme();
   const { color } = useColorPreferences();
