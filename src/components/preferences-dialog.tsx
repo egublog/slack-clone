@@ -9,6 +9,9 @@ import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { BsLaptop } from 'react-icons/bs';
 
+/**
+ * ユーザーがテーマと色の設定を変更できるダイアログコンポーネント
+ */
 const PreferencesDialog = () => {
   const { setTheme, theme } = useTheme();
   const { selectColor } = useColorPreferences();
