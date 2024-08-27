@@ -28,13 +28,15 @@ import { createWorkspace } from '@/actions/create-workspace';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { useCreateWorkspaceValues } from '@/hooks/create-workspace-values';
+import { useState } from 'react';
 
 /**
  * ワークスペース作成コンポーネント
  */
 const CreateWorkspace = () => {
   const router = useRouter();
-  const { imageUrl } = useCreateWorkspaceValues();
+  const { imageUrl, updateImageUrl } = useCreateWorkspaceValues();
+  const [isOpen, setIsOpen] = useState(false);
 
   const formSchema = z.object({
     name: z.string().min(2, { message: 'Workspace name should be at least 2 characters long' }),
@@ -57,12 +59,13 @@ const CreateWorkspace = () => {
     }
 
     form.reset();
+    updateImageUrl('');
     router.refresh();
     toast.success('Workspace created successfully');
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={() => setIsOpen((prevValue) => !prevValue)}>
       <DialogTrigger>
         <div className="flex items-center gap-2 p-2">
           <Button variant="secondary">
