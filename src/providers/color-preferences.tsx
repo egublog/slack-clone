@@ -11,6 +11,11 @@ type ColorPreferencesContext = {
 
 const ColorPreferencesContext = createContext<ColorPreferencesContext | undefined>(undefined);
 
+/**
+ * カラープリファレンスを管理するためのカスタムフック
+ * - コンテキストが存在しない場合、エラーをスロー
+ * - カラープリファレンスを提供するプロバイダー内で使用する必要がある
+ */
 export const useColorPreferences = () => {
   const context = useContext(ColorPreferencesContext);
   if (!context) {
@@ -19,6 +24,12 @@ export const useColorPreferences = () => {
   return context;
 };
 
+/**
+ * カラープリファレンスを提供するコンテキストプロバイダー
+ * - ローカルストレージから選択された色を取得し、状態として管理
+ * - 色が変更されるたびにローカルストレージを更新
+ * - マウントされるまでnullを返す
+ */
 export const ColorPreferencesProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [color, setColor] = useState<Colors>(() => {
     const storedColor =
