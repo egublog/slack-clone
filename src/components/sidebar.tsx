@@ -19,8 +19,11 @@ import Typography from '@/components/ui/typography';
 import PreferencesDialog from './preferences-dialog';
 
 type SidebarProps = {
+  // ユーザーが所属するワークスペースのデータ
   userWorkspacesData: Workspace[];
+  // 現在選択されているワークスペースのデータ
   currentWorkspaceData: Workspace;
+  // ユーザーのデータ
   userData: User;
 };
 
