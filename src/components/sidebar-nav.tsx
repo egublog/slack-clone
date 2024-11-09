@@ -10,7 +10,9 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import CreateWorkspace from '@/components/create-workspace';
 
 type SidebarNavProps = {
+  // ユーザーが所属する全てのワークスペースのデータ
   userWorkspacesData: Workspace[];
+  // 現在選択されているワークスペースのデータ
   currentWorkspaceData: Workspace;
 };
 
