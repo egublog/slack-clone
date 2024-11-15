@@ -8,7 +8,7 @@ type CreateWorkSpaceValues = {
   // 画像URLを更新する関数
   updateImageUrl: (url: string) => void;
   // 複数の値を更新する関数
-  updateValues: (values: { name: string; imageUrl: string }) => void;
+  updateValues: (values: Partial<CreateWorkSpaceValues>) => void;
   // 現在のステップ
   currentStep: number;
   // ステップを更新する関数
